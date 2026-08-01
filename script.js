@@ -42,7 +42,7 @@ let autoScrollFrame = null;
 // Desktop = 1.5
 // Mobile = 3.8
 
-const scrollSpeed = 1.5;
+const scrollSpeed = 0.5;
 
 // ========================================
 // AUTO SCROLL
