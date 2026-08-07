@@ -150,16 +150,11 @@ autoplayButton.addEventListener("click", () => {
 
     } else {
 
-        setTimeout(() => {
-
-            startAutoScroll();
-
-        }, 2500);
+        startAutoScroll();
 
     }
 
 });
-
 // ========================================
 // RESTART COMPLETE PRESENTATION
 // ========================================
