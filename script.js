@@ -5,28 +5,29 @@
 document.documentElement.classList.add("js-reveal-ready");
 
 const reveals = document.querySelectorAll(
-    ".reveal, .reveal-left, .reveal-right"
+".reveal, .reveal-left, .reveal-right"
 );
 
 const revealObserver = new IntersectionObserver(
-    (entries) => {
+(entries) => {
 
-        entries.forEach((entry) => {
+    entries.forEach((entry) => {
 
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-            }
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
 
-        });
+    });
 
-    },
-    {
-        threshold: 0.15
-    }
+},
+{
+    threshold: 0.15
+}
+
 );
 
 reveals.forEach((element) => {
-    revealObserver.observe(element);
+revealObserver.observe(element);
 });
 
 // ========================================
@@ -34,7 +35,7 @@ reveals.forEach((element) => {
 // ========================================
 
 const autoplayButton =
-    document.getElementById("autoplayButton");
+document.getElementById("autoplayButton");
 
 let autoScrolling = false;
 let autoScrollFrame = null;
@@ -85,6 +86,7 @@ function autoScroll() {
     autoScrollFrame =
         requestAnimationFrame(autoScroll);
 }
+
 // ========================================
 // START
 // ========================================
@@ -109,20 +111,9 @@ function startAutoScroll() {
 
     music.play().catch(() => {});
 
-    // Enter Full Screen
-    if (!document.fullscreenElement) {
-
-        document.documentElement
-            .requestFullscreen()
-            .catch(() => {});
-
-    }
-
     autoScrollFrame =
         requestAnimationFrame(autoScroll);
 }
-
-
 // ========================================
 // PAUSE
 // ========================================
@@ -143,18 +134,9 @@ function stopAutoScroll() {
 
     music.pause();
 
-    // Exit Full Screen
-    if (document.fullscreenElement) {
-
-        document.exitFullscreen()
-            .catch(() => {});
-
-    }
-
     autoplayButton.textContent =
         "▶ AUTO PLAY";
 }
-
 
 // ========================================
 // BUTTON
@@ -168,12 +150,15 @@ autoplayButton.addEventListener("click", () => {
 
     } else {
 
-        startAutoScroll();
+        setTimeout(() => {
+
+            startAutoScroll();
+
+        }, 2500);
 
     }
 
 });
-
 
 // ========================================
 // RESTART COMPLETE PRESENTATION
